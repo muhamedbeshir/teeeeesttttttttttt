@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Navbar from '../components/Navbar'
-import { Layers, ShieldCheck, Clock, Smartphone } from 'lucide-react'
+import { ShieldCheck, Clock, Smartphone } from 'lucide-react'
 
 function Home() {
   const { t } = useTranslation()
@@ -19,22 +19,22 @@ function Home() {
         <section className="fade-in">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-20 flex flex-col-reverse md:flex-row items-center">
             <div className="w-full md:w-1/2 text-right">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-brown-900 mb-4 sm:mb-6 leading-tight">
-                {t('siteName')} <br /> <span className="text-brown-500">{t('siteTagline')}</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#603814] mb-4 sm:mb-6 leading-tight">
+                {t('siteName')}
               </h1>
-              <p className="text-base sm:text-lg text-brown-700 mb-6 sm:mb-8 leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg text-[#603814] mb-6 sm:mb-8 leading-relaxed max-w-lg">
                 {t('siteDescription')}
               </p>
               <button 
                 onClick={handleEnter}
-                className="bg-brown-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-brown-800 transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 w-full sm:w-auto"
+                className="bg-[#603814] text-[#f9f3d8] px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-[#4e2d10] transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 w-full sm:w-auto"
               >
                 {t('startJourney')}
               </button>
             </div>
             <div className="w-full md:w-1/2 flex justify-center mb-8 sm:mb-10 md:mb-0">
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-beige-200 rounded-full flex items-center justify-center animate-float shadow-inner">
-                <Layers className="w-32 h-32 sm:w-40 sm:h-40 text-brown-700 opacity-80" />
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-[#f9f3d8] rounded-full flex items-center justify-center animate-float shadow-inner">
+                <img src="/logo.png" alt="Logo" className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-contain" />
                 <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-brown-500 rounded-full opacity-20 animate-pulse"></div>
                 <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-24 h-24 sm:w-32 sm:h-32 bg-brown-900 rounded-full opacity-10"></div>
               </div>

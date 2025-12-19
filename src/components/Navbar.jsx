@@ -41,6 +41,7 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn')
     localStorage.removeItem('userType')
+    localStorage.removeItem('currentUser')
     setIsLoggedIn(false)
     setUserType(null)
     navigate('/user-type')
@@ -69,7 +70,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex justify-between h-14 sm:h-16 items-center">
           <div className="flex items-center cursor-pointer" onClick={() => navigate('/') }>
-            <BookOpen className="w-6 h-6 sm:w-8 sm:h-8 text-brown-700 ml-1 sm:ml-2" />
+            <img src="/logo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 ml-1 sm:ml-2 object-contain" />
             <span className="text-lg sm:text-xl font-bold text-brown-900">{t('siteName')}</span>
           </div>
           

@@ -12,19 +12,27 @@ export default {
       colors: {
         beige: {
           50: '#fdfbf7',
-          100: '#f7f3e8',
-          200: '#efe6d0',
+          100: '#f9f3d8',
+          200: '#f5eed0',
           300: '#e5d3b0',
         },
         brown: {
-          500: '#8D6E63',
-          700: '#5D4037',
-          800: '#4E342E',
-          900: '#3E2723',
+          500: '#c4996c',
+          600: '#b0885a',
+          700: '#603814',
+          800: '#4e2d10',
+          900: '#3d230c',
+        },
+        primary: {
+          DEFAULT: '#603814',
+          light: '#c4996c',
+          cream: '#f9f3d8',
         }
       },
       fontFamily: {
-        sans: ['Tajawal', 'sans-serif'],
+        sans: ['Poppins', 'Cairo', 'sans-serif'],
+        arabic: ['Cairo', 'sans-serif'],
+        english: ['Poppins', 'sans-serif'],
       },
       animation: {
         'float': 'float 3s ease-in-out infinite',

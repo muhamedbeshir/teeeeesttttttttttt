@@ -10,7 +10,7 @@ function UserTypeSelection() {
 
   const handleUserTypeClick = (type) => {
     setTimeout(() => {
-      navigate('/login', { state: { userType: type } })
+      navigate('/signup', { state: { userType: type } })
     }, 150)
   }
 

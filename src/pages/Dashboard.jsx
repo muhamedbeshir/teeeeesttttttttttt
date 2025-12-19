@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Navbar from '../components/Navbar'
-import { Calendar, FileText, BarChart, Library, Sparkles, ArrowLeft, Baby, Users, BookOpen, Gamepad2, Moon, LogOut, Plus, FileBarChart, Clock, Trophy, Target } from 'lucide-react'
+import { ArrowLeft, Baby, Users, LogOut, Gamepad2, GraduationCap, UserCheck, Heart, Video, Book, Palette, Puzzle } from 'lucide-react'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -13,100 +13,111 @@ function Dashboard() {
   const userName = isChild ? t('childNickname') : t('parentNickname')
 
   const themeGradient = isChild 
-    ? 'from-orange-500 to-amber-500 shadow-orange-500/20' 
-    : 'from-indigo-600 to-blue-600 shadow-indigo-500/20'
+    ? 'from-[#c4996c] to-[#603814] shadow-[#c4996c]/20' 
+    : 'from-[#603814] to-[#c4996c] shadow-[#603814]/20'
 
   const childActivities = [
     { 
       id: 1, 
-      title: t('dashChildColorsTitle'), 
-      icon: BookOpen, 
-      desc: t('dashChildColorsDesc'), 
+      title: t('childCoachingTitle'), 
+      icon: GraduationCap, 
+      desc: t('childCoachingDesc'), 
       color: 'text-orange-600', 
-      bg: 'bg-orange-50 group-hover:bg-orange-500',
-      progress: 75
+      bg: 'bg-orange-50 group-hover:bg-orange-500'
     },
     { 
       id: 2, 
-      title: t('dashChildGamesTitle'), 
-      icon: Gamepad2, 
-      desc: t('dashChildGamesDesc'), 
-      color: 'text-blue-600', 
-      bg: 'bg-blue-50 group-hover:bg-blue-500',
-      progress: 60
+      title: t('childPsychologistTitle'), 
+      icon: Heart, 
+      desc: t('childPsychologistDesc'), 
+      color: 'text-pink-600', 
+      bg: 'bg-pink-50 group-hover:bg-pink-500'
     },
     { 
       id: 3, 
-      title: t('dashChildStoriesTitle'), 
-      icon: Moon, 
-      desc: t('dashChildStoriesDesc'), 
+      title: t('coloringGameTitle'), 
+      icon: Palette, 
+      desc: t('coloringGameDesc'), 
       color: 'text-purple-600', 
-      bg: 'bg-purple-50 group-hover:bg-purple-500',
-      progress: 45
-    }
-  ]
-
-  const parentStats = {
-    completedLessons: 24,
-    timeSpent: i18n.language === 'ar' ? '12 ساعة' : '12 hours',
-    lastActivity: i18n.language === 'ar' ? 'قبل ساعتين' : '2 hours ago',
-    overallProgress: 75
-  }
-
-  const recentActivities = [
-    { id: 1, activity: t('dashRecent1'), time: t('dashRecentTime1'), icon: BookOpen },
-    { id: 2, activity: t('dashRecent2'), time: t('dashRecentTime2'), icon: Gamepad2 },
-    { id: 3, activity: t('dashRecent3'), time: t('dashRecentTime2'), icon: Moon },
-    { id: 4, activity: t('dashRecent4'), time: t('dashRecentTime3'), icon: Target }
-  ]
-
-  const choices = isChild ? childActivities : [
-    { 
-      id: 1, 
-      title: t('dashSummaryTitle'), 
-      icon: BarChart, 
-      desc: t('dashSummaryDesc'), 
-      color: 'text-indigo-600', 
-      bg: 'bg-indigo-50 group-hover:bg-indigo-600',
-      badge: `${parentStats.completedLessons} ${t('dashLessonsLabel')}`
-    },
-    { 
-      id: 2, 
-      title: t('dashRecentTitle'), 
-      icon: Clock, 
-      desc: t('dashRecentDesc'), 
-      color: 'text-blue-600', 
-      bg: 'bg-blue-50 group-hover:bg-blue-600',
-      badge: '4'
-    },
-    { 
-      id: 3, 
-      title: t('dashReportsTitle'), 
-      icon: FileBarChart, 
-      desc: t('dashReportsDesc'), 
-      color: 'text-purple-600', 
-      bg: 'bg-purple-50 group-hover:bg-purple-600',
-      badge: t('dashUpdatedLabel')
+      bg: 'bg-purple-50 group-hover:bg-purple-500'
     },
     { 
       id: 4, 
-      title: t('dashAddChildTitle'), 
-      icon: Plus, 
-      desc: t('dashAddChildDesc'), 
+      title: t('puzzlesTitle'), 
+      icon: Puzzle, 
+      desc: t('puzzlesDesc'), 
+      color: 'text-blue-600', 
+      bg: 'bg-blue-50 group-hover:bg-blue-500'
+    },
+    { 
+      id: 5, 
+      title: t('gamesTitle'), 
+      icon: Gamepad2, 
+      desc: t('gamesDesc'), 
+      color: 'text-green-600', 
+      bg: 'bg-green-50 group-hover:bg-green-500'
+    },
+    { 
+      id: 6, 
+      title: t('familyVideosTitle'), 
+      icon: Video, 
+      desc: t('familyVideosDesc'), 
+      color: 'text-indigo-600', 
+      bg: 'bg-indigo-50 group-hover:bg-indigo-500'
+    }
+  ]
+
+  const parentChoices = [
+    { 
+      id: 5, 
+      title: t('parentCoachingTitle'), 
+      icon: GraduationCap, 
+      desc: t('parentCoachingDesc'), 
+      color: 'text-indigo-600', 
+      bg: 'bg-indigo-50 group-hover:bg-indigo-600'
+    },
+    { 
+      id: 6, 
+      title: t('specialistTitle'), 
+      icon: UserCheck, 
+      desc: t('specialistDesc'), 
+      color: 'text-blue-600', 
+      bg: 'bg-blue-50 group-hover:bg-blue-600'
+    },
+    { 
+      id: 7, 
+      title: t('psychologistTitle'), 
+      icon: Heart, 
+      desc: t('psychologistDesc'), 
+      color: 'text-pink-600', 
+      bg: 'bg-pink-50 group-hover:bg-pink-600'
+    },
+    { 
+      id: 8, 
+      title: t('awarenessVideosTitle'), 
+      icon: Video, 
+      desc: t('awarenessVideosDesc'), 
+      color: 'text-purple-600', 
+      bg: 'bg-purple-50 group-hover:bg-purple-600'
+    },
+    { 
+      id: 9, 
+      title: t('awarenessBooksTitle'), 
+      icon: Book, 
+      desc: t('awarenessBooksDesc'), 
       color: 'text-emerald-600', 
-      bg: 'bg-emerald-50 group-hover:bg-emerald-600',
-      badge: t('dashSoonLabel')
+      bg: 'bg-emerald-50 group-hover:bg-emerald-600'
     }
   ]
 
   const handleChoiceClick = (id, title) => {
-    if (!isChild && id === 4) return
     navigate(`/choice/${id}`, { state: { title } })
   }
 
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn')
     localStorage.removeItem('userType')
+    localStorage.removeItem('currentUser')
     navigate('/user-type')
   }
 
@@ -119,33 +130,21 @@ function Dashboard() {
   return (
     <>
       <Navbar />
-      <main className="flex-grow min-h-screen bg-[#f8f6f2]">
-        <section className="fade-in py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <div className={`relative overflow-hidden rounded-3xl p-8 sm:p-12 mb-10 text-white shadow-2xl bg-gradient-to-r ${themeGradient}`}>
+      <main className="flex-grow min-h-screen bg-[#f9f3d8]">
+        <section className="fade-in py-4 sm:py-8 md:py-12 px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className={`relative overflow-hidden rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-6 sm:mb-8 md:mb-10 text-white shadow-2xl bg-gradient-to-r ${themeGradient}`}>
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2 opacity-90">
                   {isChild ? <Baby className="w-5 h-5" /> : <Users className="w-5 h-5" />}
                   <span className="text-sm font-medium">{t('dashWelcomeBadge')}</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-2">{t('dashWelcomeTitle', { name: userName })}</h2>
-                <p className="text-white/80 text-lg max-w-xl">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">{t('dashWelcomeTitle', { name: userName })}</h2>
+                <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-xl">
                   {isChild ? t('dashChildIntro') : t('dashParentIntro')}
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                {!isChild && (
-                  <div className="hidden md:flex flex-col items-center gap-2 bg-white/20 backdrop-blur-sm rounded-2xl p-4">
-                    <Trophy className="w-8 h-8" />
-                    <span className="text-2xl font-bold">{parentStats.completedLessons}</span>
-                    <span className="text-xs opacity-90">{t('dashLessonsCompleted')}</span>
-                  </div>
-                )}
-                <div className="hidden md:block">
-                  <div className="w-24 h-24 rounded-full border-4 border-white/30 flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-xl font-bold">{parentStats.overallProgress}%</span>
-                  </div>
-                </div>
               </div>
             </div>
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
@@ -153,119 +152,66 @@ function Dashboard() {
           </div>
 
           {!isChild && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-brown-50">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-brown-600 text-sm font-medium">{t('dashCardLessonsTitle')}</span>
-                  <BookOpen className="w-5 h-5 text-indigo-600" />
-                </div>
-                <p className="text-3xl font-bold text-brown-900">{parentStats.completedLessons}</p>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-brown-50">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-brown-600 text-sm font-medium">{t('dashCardTimeTitle')}</span>
-                  <Clock className="w-5 h-5 text-blue-600" />
-                </div>
-                <p className="text-3xl font-bold text-brown-900">{parentStats.timeSpent}</p>
-              </div>
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-brown-50">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-brown-600 text-sm font-medium">{t('dashCardLastTitle')}</span>
-                  <Sparkles className="w-5 h-5 text-purple-600" />
-                </div>
-                <p className="text-lg font-bold text-brown-900">{parentStats.lastActivity}</p>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 mb-8 sm:mb-10">
+              {parentChoices.map((choice) => {
+                const IconComponent = choice.icon
+                return (
+                  <div
+                    key={choice.id}
+                    onClick={() => handleChoiceClick(choice.id, choice.title)}
+                    className="group bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-[0_2px_8px_rgba(96,56,20,0.08)] hover:shadow-[0_8px_24px_rgba(96,56,20,0.2)] transition-all duration-300 cursor-pointer hover:-translate-y-1 sm:hover:-translate-y-2 border border-[#f9f3d8] relative overflow-hidden"
+                  >
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 ${choice.bg} rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-500 group-hover:scale-110 shadow-sm`}>
+                      <IconComponent className={`w-6 h-6 sm:w-7 sm:h-7 ${choice.color} group-hover:text-white transition-colors duration-500`} />
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-bold text-[#603814] mb-2 group-hover:text-[#c4996c] transition-colors">
+                      {choice.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-2">
+                      {choice.desc}
+                    </p>
+
+                    <div className="flex items-center text-xs sm:text-sm font-semibold text-[#c4996c] group-hover:text-[#603814] transition-colors gap-2">
+                      <span>{t('dashViewDetails')}</span>
+                      <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:-translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           )}
 
           {isChild && (
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-brown-50 mb-10">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold text-brown-900">{t('dashChildProgressTitle')}</h3>
-                <span className="text-2xl font-bold text-orange-600">{parentStats.overallProgress}%</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-                <div 
-                  className="bg-gradient-to-r from-orange-500 to-amber-500 h-full rounded-full transition-all duration-500"
-                  style={{ width: `${parentStats.overallProgress}%` }}
-                ></div>
-              </div>
-              <p className="text-sm text-brown-600 mt-2">{t('dashChildProgressDesc')}</p>
-            </div>
-          )}
-
-          {!isChild && (
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-brown-50 mb-10">
-              <h3 className="text-xl font-bold text-brown-900 mb-4">{t('dashRecentSectionTitle')}</h3>
-              <div className="space-y-3">
-                {recentActivities.map((activity) => {
-                  const IconComponent = activity.icon
-                  return (
-                    <div key={activity.id} className="flex items-center gap-4 p-3 bg-brown-50 rounded-lg hover:bg-brown-100 transition-colors">
-                      <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                        <IconComponent className="w-5 h-5 text-indigo-600" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-brown-900">{activity.activity}</p>
-                        <p className="text-sm text-brown-600">{activity.time}</p>
-                      </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
+              {childActivities.map((choice) => {
+                const IconComponent = choice.icon
+                return (
+                  <div
+                    key={choice.id}
+                    onClick={() => handleChoiceClick(choice.id, choice.title)}
+                    className="group bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-[0_2px_8px_rgba(96,56,20,0.08)] hover:shadow-[0_8px_24px_rgba(96,56,20,0.2)] transition-all duration-300 cursor-pointer hover:-translate-y-1 sm:hover:-translate-y-2 border border-[#f9f3d8] relative overflow-hidden"
+                  >
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 ${choice.bg} rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 transition-all duration-500 group-hover:scale-110 shadow-sm`}>
+                      <IconComponent className={`w-6 h-6 sm:w-7 sm:h-7 ${choice.color} group-hover:text-white transition-colors duration-500`} />
                     </div>
-                  )
-                })}
-              </div>
-            </div>
-          )}
 
-          <div className={`grid grid-cols-1 ${isChild ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2 lg:grid-cols-4'} gap-6 mb-10`}>
-            {choices.map((choice) => {
-              const IconComponent = choice.icon
-              return (
-                <div
-                  key={choice.id}
-                  onClick={() => handleChoiceClick(choice.id, choice.title)}
-                  className={`group bg-white p-6 rounded-2xl shadow-[0_5px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_15px_30px_rgb(0,0,0,0.08)] transition-all duration-300 ${choice.id === 4 && !isChild ? 'cursor-not-allowed opacity-60' : 'cursor-pointer hover:-translate-y-2'} border border-brown-50 relative overflow-hidden`}
-                >
-                  {choice.badge && (
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-gray-100 text-gray-500 text-[10px] px-2 py-1 rounded-full font-bold group-hover:bg-brown-100 group-hover:text-brown-700 transition-colors">
-                        {choice.badge}
-                      </span>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#603814] mb-2 group-hover:text-[#c4996c] transition-colors">
+                      {choice.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-3 sm:mb-4 line-clamp-2">
+                      {choice.desc}
+                    </p>
+
+                    <div className="flex items-center text-xs sm:text-sm font-semibold text-[#c4996c] group-hover:text-[#603814] transition-colors gap-2">
+                      <span>{t('dashViewDetails')}</span>
+                      <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:-translate-x-1 transition-transform" />
                     </div>
-                  )}
-
-                  <div className={`w-14 h-14 ${choice.bg} rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 shadow-sm`}>
-                    <IconComponent className={`w-7 h-7 ${choice.color} group-hover:text-white transition-colors duration-500`} />
                   </div>
-
-                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-brown-700 transition-colors">
-                    {choice.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                    {choice.desc}
-                  </p>
-
-                  {isChild && choice.progress !== undefined && (
-                    <div className="mb-4">
-                      <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                        <div 
-                          className={`h-full rounded-full transition-all duration-500 ${choice.color.replace('text-', 'bg-')}`}
-                          style={{ width: `${choice.progress}%` }}
-                        ></div>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">{choice.progress}%</p>
-                    </div>
-                  )}
-
-                  {(!isChild || choice.id !== 4) && (
-                    <div className="flex items-center text-sm font-semibold text-brown-400 group-hover:text-brown-700 transition-colors gap-2">
-                      <span>{choice.id === 4 && !isChild ? t('dashSoonLabel') : t('dashViewDetails')}</span>
-                      <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
-                    </div>
-                  )}
-                </div>
-              )
-            })}
-          </div>
+                )
+              })}
+            </div>
+          )}
 
           <div className="flex justify-center">
             <button

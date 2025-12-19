@@ -15,12 +15,20 @@
   }
 
   body {
-    font-family: 'Tajawal', sans-serif;
-    background-color: #f7f3e8;
-    color: #3E2723;
+    font-family: 'Poppins', 'Cairo', sans-serif;
+    background-color: #f9f3d8;
+    color: #603814;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  [dir="rtl"] body {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  [dir="ltr"] body {
+    font-family: 'Poppins', sans-serif;
   }
 
   [dir="rtl"] {
@@ -49,10 +57,10 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #f7f3e8;
+    background: #f9f3d8;
   }
   ::-webkit-scrollbar-thumb {
-    background: #8D6E63;
+    background: #c4996c;
     border-radius: 4px;
   }
 

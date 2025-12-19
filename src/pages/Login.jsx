@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Navbar from '../components/Navbar'
 import { User, Lock, Baby, Users, ArrowRight } from 'lucide-react'
+import { loginUser } from '../utils/auth'
 
 function Login() {
   const navigate = useNavigate()
@@ -23,22 +24,30 @@ function Login() {
     e.preventDefault()
     setError('')
 
-    const validCredentials = {
-      parents: '542002',
-      child: '542002'
-    }
-
-    const expectedUsername = userType === 'parent' ? 'parents' : 'child'
-    const expectedPassword = validCredentials[expectedUsername]
-
-    if (username === expectedUsername && password === expectedPassword) {
-      localStorage.setItem('isLoggedIn', 'true')
-      localStorage.setItem('userType', userType)
+    // Try to login with saved users
+    const result = loginUser(username, password, userType)
+    
+    if (result.success) {
       navigate('/dashboard')
     } else {
-      setError(t('invalidCredentials'))
-      setShake(true)
-      setTimeout(() => setShake(false), 500)
+      // Fallback to demo credentials for backward compatibility
+      const validCredentials = {
+        parents: '542002',
+        child: '542002'
+      }
+
+      const expectedUsername = userType === 'parent' ? 'parents' : 'child'
+      const expectedPassword = validCredentials[expectedUsername]
+
+      if (username === expectedUsername && password === expectedPassword) {
+        localStorage.setItem('isLoggedIn', 'true')
+        localStorage.setItem('userType', userType)
+        navigate('/dashboard')
+      } else {
+        setError(result.message || t('invalidCredentials'))
+        setShake(true)
+        setTimeout(() => setShake(false), 500)
+      }
     }
   }
 
@@ -61,19 +70,19 @@ function Login() {
                   <Users className="w-8 h-8 sm:w-10 sm:h-10" />
                 )}
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-brown-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#603814] tracking-tight">
                 {isChild ? t('childLoginTitle') : t('parentLoginTitle')}
               </h2>
-              <p className="text-brown-500 mt-2 font-medium">
+              <p className="text-[#603814] mt-2 font-medium opacity-80">
                 {isChild ? t('childLoginSubtitle') : t('parentLoginSubtitle')}
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-brown-800 mr-1">{t('username')}</label>
+                <label className="text-sm font-semibold text-[#603814] mr-1">{t('username')}</label>
                 <div className="relative group">
-                  <div className={`absolute right-3 top-3.5 transition-colors duration-300 ${isChild ? 'group-focus-within:text-orange-500' : 'group-focus-within:text-indigo-500'} text-brown-400`}>
+                  <div className={`absolute right-3 top-3.5 transition-colors duration-300 ${isChild ? 'group-focus-within:text-orange-500' : 'group-focus-within:text-indigo-500'} text-[#c4996c]`}>
                     <User className="w-5 h-5" />
                   </div>
                   <input 
@@ -81,16 +90,16 @@ function Login() {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder={isChild ? t('childUsernamePlaceholder') : t('parentUsernamePlaceholder')} 
-                    className={`w-full bg-white px-4 py-3 pr-11 rounded-xl border border-brown-100 outline-none transition-all duration-300 focus:ring-2 focus:bg-white focus:border-transparent ${isChild ? 'focus:ring-orange-200' : 'focus:ring-indigo-200'} placeholder:text-brown-300 text-brown-900 font-medium`}
+                    className={`w-full bg-white px-4 py-3 pr-11 rounded-xl border border-[#f9f3d8] outline-none transition-all duration-300 focus:ring-2 focus:bg-white focus:border-transparent ${isChild ? 'focus:ring-orange-200' : 'focus:ring-indigo-200'} placeholder:text-[#c4996c] text-[#603814] font-medium`}
                     required
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-brown-800 mr-1">{t('password')}</label>
+                <label className="text-sm font-semibold text-[#603814] mr-1">{t('password')}</label>
                 <div className="relative group">
-                  <div className={`absolute right-3 top-3.5 transition-colors duration-300 ${isChild ? 'group-focus-within:text-orange-500' : 'group-focus-within:text-indigo-500'} text-brown-400`}>
+                  <div className={`absolute right-3 top-3.5 transition-colors duration-300 ${isChild ? 'group-focus-within:text-orange-500' : 'group-focus-within:text-indigo-500'} text-[#c4996c]`}>
                     <Lock className="w-5 h-5" />
                   </div>
                   <input 
@@ -98,19 +107,12 @@ function Login() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder={t('passwordPlaceholder')} 
-                    className={`w-full bg-white px-4 py-3 pr-11 rounded-xl border border-brown-100 outline-none transition-all duration-300 focus:ring-2 focus:bg-white focus:border-transparent ${isChild ? 'focus:ring-orange-200' : 'focus:ring-indigo-200'} placeholder:text-brown-300 text-brown-900 font-medium`}
+                    className={`w-full bg-white px-4 py-3 pr-11 rounded-xl border border-[#f9f3d8] outline-none transition-all duration-300 focus:ring-2 focus:bg-white focus:border-transparent ${isChild ? 'focus:ring-orange-200' : 'focus:ring-indigo-200'} placeholder:text-[#c4996c] text-[#603814] font-medium`}
                     required
                   />
                 </div>
               </div>
               
-              <div className={`${isChild ? 'bg-orange-50 border-orange-200 text-orange-700' : 'bg-indigo-50 border-indigo-200 text-indigo-700'} border text-xs rounded-lg p-3 text-center`}>
-                <p className="font-medium mb-1">{t('demoCredentialsTitle')}</p>
-                <p className="font-mono">
-                  {isChild ? 'child' : 'parents'} / 542002
-                </p>
-              </div>
-
               {error && (
                 <div className="bg-red-50 border border-red-200 text-red-600 text-sm rounded-lg p-3 text-center font-medium animate-pulse">
                   {error}
@@ -124,10 +126,22 @@ function Login() {
                 {t('submit')}
               </button>
 
+              <div className="text-center">
+                <p className="text-[#603814] text-sm mb-2">ليس لديك حساب؟</p>
+                <Link 
+                  to="/signup" 
+                  state={{ userType }}
+                  className="flex items-center justify-center gap-2 text-[#603814] text-sm font-medium hover:text-[#4e2d10] transition-colors py-2"
+                >
+                  <span>إنشاء حساب جديد</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
               <button 
                 type="button" 
                 onClick={() => navigate('/user-type')} 
-                className="w-full flex items-center justify-center gap-2 text-brown-500 text-sm font-medium hover:text-brown-800 transition-colors py-2"
+                className="w-full flex items-center justify-center gap-2 text-[#c4996c] text-sm font-medium hover:text-[#603814] transition-colors py-2"
               >
                 <span>{t('changeUserType')}</span>
                 <ArrowRight className="w-4 h-4" />

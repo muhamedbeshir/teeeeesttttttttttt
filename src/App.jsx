@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import UserTypeSelection from './pages/UserTypeSelection'
 import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 import Dashboard from './pages/Dashboard'
 import ChoicePage from './pages/ChoicePage'
 import AboutUs from './pages/AboutUs'
@@ -40,6 +41,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/user-type" element={<UserTypeSelection />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route

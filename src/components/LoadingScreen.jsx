@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { BookOpen } from 'lucide-react'
 
 function LoadingScreen({ onComplete }) {
   const [opacity, setOpacity] = useState(1)
@@ -41,22 +40,22 @@ function LoadingScreen({ onComplete }) {
 
   return (
     <div 
-      className="fixed inset-0 bg-beige-50 z-[9999] flex justify-center items-center flex-col transition-opacity duration-500"
+      className="fixed inset-0 bg-[#f9f3d8] z-[9999] flex justify-center items-center flex-col transition-opacity duration-500"
       style={{ opacity }}
     >
       <div className="animate-float mb-4">
-        <BookOpen className="w-16 h-16 text-brown-700" />
+        <img src="/logo.png" alt="Logo" className="w-24 h-24 sm:w-32 sm:h-32 object-contain" />
       </div>
-      <h1 className="text-2xl font-bold text-brown-900 mb-3">
+      <h1 className="text-2xl font-bold text-[#603814] mb-3">
         {t('siteName')}
       </h1>
-      <div className="w-48 h-2 bg-beige-200 rounded-full overflow-hidden">
-        <div className="h-full bg-brown-700 animate-pulse" style={{ width: '100%' }}></div>
+      <div className="w-48 h-2 bg-[#c4996c] rounded-full overflow-hidden">
+        <div className="h-full bg-[#603814] animate-pulse" style={{ width: '100%' }}></div>
       </div>
-      <p className="mt-2 text-sm text-brown-500">
+      <p className="mt-2 text-sm text-[#603814]">
         {t('loading')}
       </p>
-      <p className="mt-3 text-xs sm:text-sm text-brown-600 max-w-xs text-center leading-relaxed">
+      <p className="mt-3 text-xs sm:text-sm text-[#603814] max-w-xs text-center leading-relaxed">
         {tips[tipIndex]}
       </p>
     </div>
