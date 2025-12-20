@@ -44,7 +44,7 @@ function LoadingScreen({ onComplete }) {
       style={{ opacity }}
     >
       <div className="animate-float mb-4">
-        <img src="/logo.png" alt="Logo" className="w-24 h-24 sm:w-32 sm:h-32 object-contain" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="w-24 h-24 sm:w-32 sm:h-32 object-contain" />
       </div>
       <h1 className="text-2xl font-bold text-[#603814] mb-3">
         {t('siteName')}

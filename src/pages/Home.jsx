@@ -34,7 +34,7 @@ function Home() {
             </div>
             <div className="w-full md:w-1/2 flex justify-center mb-8 sm:mb-10 md:mb-0">
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-[#f9f3d8] rounded-full flex items-center justify-center animate-float shadow-inner">
-                <img src="/logo.png" alt="Logo" className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-contain" />
+                <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-contain" />
                 <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-brown-500 rounded-full opacity-20 animate-pulse"></div>
                 <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-24 h-24 sm:w-32 sm:h-32 bg-brown-900 rounded-full opacity-10"></div>
               </div>

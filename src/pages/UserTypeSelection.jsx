@@ -45,9 +45,6 @@ function UserTypeSelection() {
               </div>
               
               <h3 className="text-lg sm:text-2xl font-bold text-brown-900 mb-2 sm:mb-3">{t('childCardTitle')}</h3>
-              <p className="text-brown-600 text-xs sm:text-base leading-relaxed sm:leading-relaxed max-w-[12rem] sm:max-w-none mx-auto">
-                {t('childCardDesc')}
-              </p>
               
               <div className="mt-6 w-full h-1 bg-gray-100 rounded-full overflow-hidden">
                 <div className="h-full w-0 group-hover:w-full bg-orange-400 transition-all duration-500 ease-out"></div>
@@ -67,10 +64,7 @@ function UserTypeSelection() {
               </div>
               
               <h3 className="text-lg sm:text-2xl font-bold text-brown-900 mb-2 sm:mb-3">{t('parentCardTitle')}</h3>
-              <p className="text-brown-600 text-xs sm:text-base leading-relaxed sm:leading-relaxed max-w-[12rem] sm:max-w-none mx-auto">
-                {t('parentCardDesc')}
-              </p>
-
+              
               <div className="mt-6 w-full h-1 bg-gray-100 rounded-full overflow-hidden">
                 <div className="h-full w-0 group-hover:w-full bg-indigo-500 transition-all duration-500 ease-out"></div>
               </div>

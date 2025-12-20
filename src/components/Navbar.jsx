@@ -70,7 +70,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex justify-between h-14 sm:h-16 items-center">
           <div className="flex items-center cursor-pointer" onClick={() => navigate('/') }>
-            <img src="/logo.png" alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 ml-1 sm:ml-2 object-contain" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="w-8 h-8 sm:w-10 sm:h-10 ml-1 sm:ml-2 object-contain" />
             <span className="text-lg sm:text-xl font-bold text-brown-900">{t('siteName')}</span>
           </div>
           
