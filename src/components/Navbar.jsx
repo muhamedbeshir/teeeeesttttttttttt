@@ -77,7 +77,7 @@ function Navbar() {
           <div className={`hidden md:flex items-center ${isArabic ? 'space-x-reverse space-x-8' : 'space-x-8'}`}>
             <Link to="/" className="text-brown-700 hover:text-brown-900 transition font-medium">{t('home')}</Link>
             <Link to="/about" className="text-brown-700 hover:text-brown-900 transition font-medium">{t('aboutUs')}</Link>
-            <Link to="/contact" className="text-brown-700 hover:text-brown-900 transition font-medium">{t('contactUs')}</Link>
+            <Link to="/contact" className="text-brown-700 hover:text-brown-900 transition font-medium">{t('contactTitle')}</Link>
             <button onClick={toggleLanguage} className="flex items-center text-brown-700 hover:text-brown-900">
               <Globe className="w-4 h-4 ml-1" />
               {isArabic ? 'EN' : 'AR'}
@@ -156,7 +156,7 @@ function Navbar() {
             </Link>
             <Link to="/contact" className="flex items-center text-brown-700 hover:text-brown-900 transition py-2.5 sm:py-2 text-sm sm:text-base" onClick={closeMenu}>
               <Mail className="w-5 h-5 ml-2" />
-              {t('contactUs')}
+              {t('contactTitle')}
             </Link>
             <button onClick={toggleLanguage} className="flex items-center text-brown-700 hover:text-brown-900 transition py-2.5 sm:py-2 w-full text-right text-sm sm:text-base">
               <Globe className="w-5 h-5 ml-2" />
