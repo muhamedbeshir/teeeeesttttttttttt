@@ -5,8 +5,9 @@ import Navbar from '../components/Navbar'
 import { ShieldCheck, Clock, Smartphone } from 'lucide-react'
 
 function Home() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const navigate = useNavigate()
+  const isArabic = i18n.language === 'ar'
 
   const handleEnter = () => {
     navigate('/user-type')
@@ -18,7 +19,7 @@ function Home() {
       <main className="flex-grow relative">
         <section className="fade-in">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-20 flex flex-col-reverse md:flex-row items-center">
-            <div className="w-full md:w-1/2 text-right">
+            <div className={`w-full md:w-1/2 ${isArabic ? 'text-right' : 'text-left'}`}>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#603814] mb-4 sm:mb-6 leading-tight">
                 {t('siteName')}
               </h1>

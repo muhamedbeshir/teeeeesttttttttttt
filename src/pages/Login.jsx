@@ -28,7 +28,10 @@ function Login() {
     const result = loginUser(username, password, userType)
     
     if (result.success) {
-      navigate('/dashboard')
+      // Ensure all data is saved before navigation
+      setTimeout(() => {
+        navigate('/dashboard')
+      }, 100)
     } else {
       // Fallback to demo credentials for backward compatibility
       const validCredentials = {
@@ -42,7 +45,16 @@ function Login() {
       if (username === expectedUsername && password === expectedPassword) {
         localStorage.setItem('isLoggedIn', 'true')
         localStorage.setItem('userType', userType)
-        navigate('/dashboard')
+        // Save demo user data
+        localStorage.setItem('currentUser', JSON.stringify({
+          id: 'demo',
+          username: username,
+          userType: userType
+        }))
+        // Ensure all data is saved before navigation
+        setTimeout(() => {
+          navigate('/dashboard')
+        }, 100)
       } else {
         setError(result.message || t('invalidCredentials'))
         setShake(true)

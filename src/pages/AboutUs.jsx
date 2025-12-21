@@ -1,10 +1,12 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
-import { BookOpen, Target, Users, Award, Heart } from 'lucide-react'
+import { BookOpen, Target, Users, Award, Heart, ArrowLeft } from 'lucide-react'
 
 function AboutUs() {
   const { t, i18n } = useTranslation()
+  const navigate = useNavigate()
   const isArabic = i18n.language === 'ar'
 
   return (
@@ -18,9 +20,11 @@ function AboutUs() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#603814] mb-3 sm:mb-4">
                 {t('aboutTitle')}
               </h1>
-              <p className="text-lg sm:text-xl text-[#c4996c]">
-                {t('aboutSubtitle')}
-              </p>
+              {t('aboutSubtitle') && (
+                <p className="text-lg sm:text-xl text-[#c4996c]">
+                  {t('aboutSubtitle')}
+                </p>
+              )}
             </div>
 
             {/* Section 1: Who We Are */}
@@ -63,31 +67,9 @@ function AboutUs() {
                   {t('aboutSection3')}
                 </h2>
               </div>
-              <p className="text-base sm:text-lg text-[#603814] leading-relaxed mb-4">
+              <p className="text-base sm:text-lg text-[#603814] leading-relaxed">
                 {t('aboutSection3Text')}
               </p>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-[#c4996c] text-xl mt-1">•</span>
-                  <span className="text-base sm:text-lg text-[#603814]">{t('aboutMission1')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#c4996c] text-xl mt-1">•</span>
-                  <span className="text-base sm:text-lg text-[#603814]">{t('aboutMission2')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#c4996c] text-xl mt-1">•</span>
-                  <span className="text-base sm:text-lg text-[#603814]">{t('aboutMission3')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#c4996c] text-xl mt-1">•</span>
-                  <span className="text-base sm:text-lg text-[#603814]">{t('aboutMission4')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#c4996c] text-xl mt-1">•</span>
-                  <span className="text-base sm:text-lg text-[#603814]">{t('aboutMission5')}</span>
-                </li>
-              </ul>
             </div>
 
             {/* Section 4: What Makes Us Special */}
@@ -116,10 +98,12 @@ function AboutUs() {
                   <span className="text-[#c4996c] text-xl mt-1">✓</span>
                   <span className="text-base sm:text-lg text-[#603814]">{t('aboutFeature3')}</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#c4996c] text-xl mt-1">✓</span>
-                  <span className="text-base sm:text-lg text-[#603814]">{t('aboutFeature4')}</span>
-                </li>
+                {t('aboutFeature4') && (
+                  <li className="flex items-start gap-3">
+                    <span className="text-[#c4996c] text-xl mt-1">✓</span>
+                    <span className="text-base sm:text-lg text-[#603814]">{t('aboutFeature4')}</span>
+                  </li>
+                )}
                 <li className="flex items-start gap-3">
                   <span className="text-[#c4996c] text-xl mt-1">✓</span>
                   <span className="text-base sm:text-lg text-[#603814]">{t('aboutFeature5')}</span>
@@ -137,9 +121,13 @@ function AboutUs() {
                   {t('aboutSection5')}
                 </h2>
               </div>
-              <p className="text-base sm:text-lg leading-relaxed opacity-95">
-                {t('aboutSection5Text')}
-              </p>
+              <button 
+                onClick={() => navigate('/signup')}
+                className="mt-6 bg-white text-[#603814] px-8 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-[#f9f3d8] transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center gap-2 mx-auto"
+              >
+                <span>{t('startJourney')}</span>
+                <ArrowLeft className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </section>

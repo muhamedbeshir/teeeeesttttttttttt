@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Navbar from '../components/Navbar'
-import { Mail, Phone, Clock, MessageSquare, Send, Facebook, Twitter, Instagram } from 'lucide-react'
+import { MessageSquare, Send, Facebook, Instagram } from 'lucide-react'
 
 function ContactUs() {
   const { t, i18n } = useTranslation()
@@ -44,78 +44,6 @@ function ContactUs() {
               <p className="text-lg sm:text-xl text-[#c4996c]">
                 {t('contactSubtitle')}
               </p>
-            </div>
-
-            {/* Contact Methods Section */}
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8 md:p-10 mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#603814] mb-4 sm:mb-6">
-                {t('contactSection1')}
-              </h2>
-              <p className="text-base sm:text-lg text-[#603814] mb-6 leading-relaxed">
-                {t('contactSection1Text')}
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Email */}
-                <div className="bg-[#f9f3d8] rounded-xl p-5 sm:p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-[#603814] rounded-lg flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[#603814]">
-                      {t('contactEmail')}
-                    </h3>
-                  </div>
-                  <p className="text-sm sm:text-base text-[#603814] mb-2 opacity-80">
-                    {t('contactEmailText')}
-                  </p>
-                  <a 
-                    href={`mailto:${t('contactEmailValue')}`}
-                    className="text-base sm:text-lg font-semibold text-[#c4996c] hover:text-[#603814] transition-colors"
-                  >
-                    {t('contactEmailValue')}
-                  </a>
-                </div>
-
-                {/* Phone */}
-                <div className="bg-[#f9f3d8] rounded-xl p-5 sm:p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-[#603814] rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[#603814]">
-                      {t('contactPhone')}
-                    </h3>
-                  </div>
-                  <p className="text-sm sm:text-base text-[#603814] mb-2 opacity-80">
-                    {t('contactPhoneText')}
-                  </p>
-                  <a 
-                    href={`tel:${t('contactPhoneValue')}`}
-                    className="text-base sm:text-lg font-semibold text-[#c4996c] hover:text-[#603814] transition-colors"
-                  >
-                    {t('contactPhoneValue')}
-                  </a>
-                </div>
-
-                {/* Working Hours */}
-                <div className="bg-[#f9f3d8] rounded-xl p-5 sm:p-6 md:col-span-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-[#603814] rounded-lg flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-[#603814]">
-                      {t('contactHours')}
-                    </h3>
-                  </div>
-                  <p className="text-sm sm:text-base text-[#603814] mb-2 opacity-80">
-                    {t('contactHoursText')}
-                  </p>
-                  <p className="text-base sm:text-lg font-semibold text-[#c4996c]">
-                    {t('contactHoursValue')}
-                  </p>
-                </div>
-              </div>
             </div>
 
             {/* Contact Form */}
@@ -207,13 +135,15 @@ function ContactUs() {
                 {t('contactSection3Text')}
               </p>
               <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 bg-[#f9f3d8] rounded-lg flex items-center justify-center hover:bg-[#c4996c] transition-colors">
+                <a href="https://www.facebook.com/profile.php?id=61583005894552" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-[#f9f3d8] rounded-lg flex items-center justify-center hover:bg-[#c4996c] transition-colors">
                   <Facebook className="w-6 h-6 text-[#603814]" />
                 </a>
-                <a href="#" className="w-12 h-12 bg-[#f9f3d8] rounded-lg flex items-center justify-center hover:bg-[#c4996c] transition-colors">
-                  <Twitter className="w-6 h-6 text-[#603814]" />
+                <a href="https://www.tiktok.com/@catalgo25_?_r=1&_t=ZS-91X1zMJIVb2" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-[#f9f3d8] rounded-lg flex items-center justify-center hover:bg-[#c4996c] transition-colors">
+                  <svg className="w-6 h-6 text-[#603814]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                  </svg>
                 </a>
-                <a href="#" className="w-12 h-12 bg-[#f9f3d8] rounded-lg flex items-center justify-center hover:bg-[#c4996c] transition-colors">
+                <a href="https://www.instagram.com/catalog25_?igsh=MTJzaGhwdHJvM3VkbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-[#f9f3d8] rounded-lg flex items-center justify-center hover:bg-[#c4996c] transition-colors">
                   <Instagram className="w-6 h-6 text-[#603814]" />
                 </a>
               </div>
